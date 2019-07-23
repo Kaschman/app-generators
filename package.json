@@ -1,0 +1,22 @@
+{
+  "name": "generator-react-app",
+  "version": "0.0.1",
+  "description": "Generator for opionated Combine Labs React applications.",
+  "repository": "git@github.com:Combine-Labs/generator-react-app.git",
+  "files": [
+    "app",
+    "subgenerator"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "author": "Steve Kaschinske <steve.kaschinske@gmail.com>",
+  "license": "none",
+  "private": true,
+  "dependencies": {
+    "yeoman-generator": "^4.0.1"
+  }
+}
