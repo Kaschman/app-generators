@@ -4,9 +4,12 @@
   "description": "Generator for opionated Combine Labs React applications.",
   "repository": "git@github.com:Combine-Labs/generator-react-app.git",
   "files": [
-    "app",
-    "subgenerator"
+    "generators"
   ],
+  "scripts": {
+    "build": "babel src --out-dir generators",
+    "generate": "yarn build && yo react-app"
+  },
   "keywords": [
     "yeoman-generator"
   ],
@@ -18,5 +21,11 @@
   "private": true,
   "dependencies": {
     "yeoman-generator": "^4.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-plugin-add-module-exports": "^1.0.2"
   }
 }
