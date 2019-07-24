@@ -10,7 +10,7 @@
     "build": "babel src --out-dir generators",
     "fix": "yarn lint --fix",
     "generate": "yarn build && yo react-app",
-    "lint": "eslint . --ext .js -c ./tooling/eslint/.eslintrc.json --ignore-path ./tooling/eslint/.eslintignore"
+    "lint": "eslint . --ext .js"
   },
   "keywords": [
     "yeoman-generator"
