@@ -20,22 +20,37 @@ class ReactAppGenerator extends Generator {
             default: 'sample-react-app',
           },
         ])
-        this.name = answers.name
+        const { name } = answers
+        this.name = name
+
+        // Check if directory already exists
+        const exists = await fs.pathExists(this.destinationPath(name))
+        if (exists) {
+          // Overwrite check
+          const overwriteAnswers = await this.prompt([
+            {
+              type: 'confirm',
+              name: 'overwrite',
+              message: `A directory named '${name}' already exists. Would you like to overwrite?`,
+            },
+          ])
+          if (overwriteAnswers.overwrite) {
+            await fs.remove(this.destinationPath(name))
+          } else {
+            this.log('Exiting...')
+            process.exit(0)
+          }
+        }
       },
     }
   }
 
   // Configuring Priority
-  get configuring() {
-    return {
-      async checkDir() {
-        const exists = await fs.pathExists(this.destinationPath(this.name))
-        if (exists) {
-          this.env.error(`The path ${this.name} already exists.`)
-        }
-      },
-    }
-  }
+  // get configuring() {
+  //   return {
+  //
+  //   }
+  // }
 
   // Writing Priority
   get writing() {
