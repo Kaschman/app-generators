@@ -8,8 +8,9 @@
   ],
   "scripts": {
     "build": "babel src --out-dir generators",
+    "clean": "rm -rf sample-react-app",
     "fix": "yarn lint --fix",
-    "generate": "yarn build && yo react-app",
+    "generate": "yarn clean && yarn build && yo react-app",
     "lint": "eslint . --ext .js"
   },
   "keywords": [
