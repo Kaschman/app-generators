@@ -59,17 +59,15 @@ class ReactAppGenerator extends Generator {
           respository: '',
           author: 'Your name here',
         }
-        await fs.writeJSON(
-          this.destinationPath('package.json'),
-          packageSettings
-        )
+        await fs.writeJSON(this.destinationPath('package.json'), packageSettings)
+      },
+
+      async writeConfig() {
+        await fs.copy(this.templatePath('template.editorconfig'), this.destinationPath('.editorconfig'))
       },
 
       async writePublicAssets() {
-        await fs.copy(
-          this.templatePath('index.html'),
-          this.destinationPath('public/index.html')
-        )
+        await fs.copy(this.templatePath('index.html'), this.destinationPath('public/index.html'))
       },
     }
   }
