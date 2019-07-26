@@ -19,6 +19,9 @@ Some notes on [working with Yeoman in ES6](http://mammal.io/articles/yeoman-gene
 - Testing (the react app)
 - CI - run tests and lint
 - Styling
+- manifest.json - https://developers.google.com/web/fundamentals/web-app-manifest/ (see CRA /public directory)
+- shortcut icon (see CRA /public directory)
+- Template README
 
 ## Linting
 - https://prettier.io/docs/en/integrating-with-linters.html

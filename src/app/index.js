@@ -50,11 +50,7 @@ class ReactAppGenerator extends Generator {
   // Writing Priority
   get writing() {
     return {
-      async makeDir() {
-        await fs.ensureDir(this.destinationPath(this.name))
-      },
-
-      generatePackage() {
+      async writePackage() {
         const packageSettings = {
           name: this.name,
           private: true,
@@ -63,7 +59,17 @@ class ReactAppGenerator extends Generator {
           respository: '',
           author: 'Your name here',
         }
-        this.fs.writeJSON(this.destinationPath('package.json'), packageSettings)
+        await fs.writeJSON(
+          this.destinationPath('package.json'),
+          packageSettings
+        )
+      },
+
+      async writePublicAssets() {
+        await fs.copy(
+          this.templatePath('index.html'),
+          this.destinationPath('public/index.html')
+        )
       },
     }
   }

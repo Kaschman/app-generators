@@ -7,7 +7,7 @@
     "generators"
   ],
   "scripts": {
-    "build": "babel src --out-dir generators",
+    "build": "babel src --out-dir generators --copy-files",
     "clean": "rm -rf sample-react-app",
     "fix": "yarn lint --fix",
     "generate": "yarn clean && yarn build && yo react-app",
