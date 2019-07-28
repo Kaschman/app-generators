@@ -3,8 +3,10 @@ Yeoman generator for creating React applications
 
 Getting started:
 1. `$ yarn global add yo` if you haven't installed Yeoman yet.
-2. `$ yarn link` from this project's root directory to make the generator discoverable by Yeoman
-3. `$ yarn generate` to run the generator
+2. `$ yarn install`
+3. `$ yarn build`
+4. `$ yarn link` from this project's root directory to make the generator discoverable by Yeoman
+5. `$ yo react-app` from a different directory - the generator does not work if you have uncommitted git files.
 
 Some notes on [working with Yeoman in ES6](http://mammal.io/articles/yeoman-generators-es6/).
 
@@ -22,6 +24,7 @@ Some notes on [working with Yeoman in ES6](http://mammal.io/articles/yeoman-gene
 - manifest.json - https://developers.google.com/web/fundamentals/web-app-manifest/ (see CRA /public directory)
 - shortcut icon (see CRA /public directory)
 - Template README
+- cache or CRA
 
 ## Linting
 - https://prettier.io/docs/en/integrating-with-linters.html
