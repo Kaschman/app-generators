@@ -6,6 +6,7 @@
   "plugins": ["prettier"],
   "rules": {
     "class-methods-use-this": "off",
+    "no-unused-vars": ["error", { "args": "after-used" }],
     "prettier/prettier": "error"
   }
 }

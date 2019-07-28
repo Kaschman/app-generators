@@ -10,8 +10,9 @@
     "build": "babel src --out-dir generators --copy-files",
     "clean": "rm -rf sample-react-app",
     "fix": "yarn lint --fix",
-    "generate": "yarn clean && yarn build && yo react-app",
-    "lint": "eslint . --ext .js"
+    "generate": "yarn clean && yarn build && yo react-app --cra-cache",
+    "lint": "eslint . --ext .js",
+    "update:cra-cache": "rm -rf cra-cache && npx create-react-app cra-cache && cd cra-cache && echo y | yarn eject && cd .."
   },
   "keywords": [
     "yeoman-generator"
@@ -24,6 +25,8 @@
   "private": true,
   "dependencies": {
     "chalk": "^2.4.2",
+    "cli-progress": "^2.1.1",
+    "cpy": "^7.3.0",
     "fs-extra": "^8.1.0",
     "lodash": "^4.17.15",
     "yeoman-generator": "^4.0.1"
