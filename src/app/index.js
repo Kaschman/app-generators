@@ -1,10 +1,14 @@
 import Generator from 'yeoman-generator'
 import chalk from 'chalk'
 import cliProgress from 'cli-progress'
-import cpy from 'cpy'
+import copy from 'recursive-copy'
+import countFiles from 'count-files'
 import fs from 'fs-extra'
 import _ from 'lodash'
 import { execSync } from 'child_process'
+import { promisify } from 'util'
+
+const fileCount = promisify(countFiles)
 
 const makeGeneratorName = name => {
   return _.kebabCase(name)
@@ -138,16 +142,21 @@ class ReactAppGenerator extends Generator {
         if (!craCache) return
 
         this.log(chalk.cyanBright('\nCopying CRA cache'))
+        const count = await fileCount(this.destinationPath('cra-cache'))
         const bar = new cliProgress.Bar({ etaBuffer: 100 }, cliProgress.Presets.legacy)
+        bar.start(count.files, 0)
+        let counter = 0
 
-        let start = false
-        await cpy(this.destinationPath('cra-cache'), this.destinationPath(this.name)).on('progress', progress => {
-          if (!start) {
-            bar.start(progress.totalFiles, 0)
-            start = true
+        /* eslint-disable no-unused-vars */
+        await copy(this.destinationPath('cra-cache'), this.destinationPath(this.name)).on(
+          copy.events.COPY_FILE_COMPLETE,
+          copyOperation => {
+            counter += 1
+            bar.update(counter)
           }
-          bar.update(progress.completedFiles)
-        })
+        )
+        /* eslint-enable no-unused-vars */
+
         bar.stop()
         this.log(chalk.cyanBright('Copying Complete'))
         this.destinationRoot(this.destinationPath(this.name))

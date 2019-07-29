@@ -37,7 +37,7 @@ Some notes on [working with Yeoman in ES6](http://mammal.io/articles/yeoman-gene
 - cache or CRA
 
 ## Performance
-Even using the `--cra-cache` flag can be a bit slow. The project using the [cpy](https://github.com/sindresorhus/cpy) library at the moment to copy the cache to the destination directory. [recursive-copy](https://github.com/timkendrick/recursive-copy) was tried as well but it was about 75% slower.
+Even using the `--cra-cache` flag can be a bit slow. The project uses [recursive-copy](https://github.com/timkendrick/recursive-copy). fs-extra had perforance issues. [cpy](https://github.com/sindresorhus/cpy), while more performant that recurive-copy, [does not support recursion](https://github.com/sindresorhus/cpy/issues/61).
 
 ## Linting
 - https://prettier.io/docs/en/integrating-with-linters.html
