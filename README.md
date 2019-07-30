@@ -9,7 +9,7 @@ Yeoman generator for creating React applications
 4. `$ yarn link` from this project's root directory to make the generator discoverable by Yeoman
 5. `$ yo react-app` to run the generator - note: the generator does not work if you have uncommitted git files in the directory where the command is run.
 
-### Developing the Generator
+### Development
 Create React App takes awhile to run. When developing the generator, you can use a cached version of the Create React App boilerplate to speed up generation time.
 1. `$ yarn global add yo` if you haven't installed Yeoman yet.
 2. `$ yarn install`
@@ -22,11 +22,6 @@ Some notes on [working with Yeoman in ES6](http://mammal.io/articles/yeoman-gene
 
 ## Performance
 Even using the `--cra-cache` flag can be a bit slow. The project uses [recursive-copy](https://github.com/timkendrick/recursive-copy). fs-extra had perforance issues. [cpy](https://github.com/sindresorhus/cpy), while more performant that recurive-copy, [does not support recursion](https://github.com/sindresorhus/cpy/issues/61).
-
-## Linting
-- https://prettier.io/docs/en/integrating-with-linters.html
-- https://github.com/prettier/prettier-eslint/issues/101
-- https://stackoverflow.com/questions/46201647/prettier-airbnbs-eslint-config
 
 ## Babel Config
 `babel-plugin-add-module-exports` is needed for the old `module.exports` functionality (see this [issue](https://github.com/yeoman/yo/issues/391)).
