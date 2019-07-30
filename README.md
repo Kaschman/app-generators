@@ -20,22 +20,6 @@ Create React App takes awhile to run. When developing the generator, you can use
 
 Some notes on [working with Yeoman in ES6](http://mammal.io/articles/yeoman-generators-es6/).
 
-# TODOs
-- Create a Production build script for React https://reactjs.org/docs/optimizing-performance.html#use-the-production-build
-- Istanbul Code Coverage https://github.com/istanbuljs/babel-plugin-istanbul/
-- Bundler = Webpack
-- Compiler = Babel
-- Flow for type checking
-- ESLint - AirBnB + Prettier
-- Testing (the generator) - https://yeoman.io/authoring/testing.html
-- Testing (the react app)
-- CI - run tests and lint
-- Styling
-- manifest.json - https://developers.google.com/web/fundamentals/web-app-manifest/ (see CRA /public directory)
-- shortcut icon (see CRA /public directory)
-- Template README
-- cache or CRA
-
 ## Performance
 Even using the `--cra-cache` flag can be a bit slow. The project uses [recursive-copy](https://github.com/timkendrick/recursive-copy). fs-extra had perforance issues. [cpy](https://github.com/sindresorhus/cpy), while more performant that recurive-copy, [does not support recursion](https://github.com/sindresorhus/cpy/issues/61).
 
