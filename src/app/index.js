@@ -182,6 +182,10 @@ class ReactAppGenerator extends Generator {
 
       async writeConfig() {
         await fs.copy(this.templatePath('template.editorconfig'), this.destinationPath('.editorconfig'))
+        this.log('Copied template .editorconfig file')
+        await fs.copy(this.templatePath('.github'), this.destinationPath('.github'))
+        await fs.copy(this.templatePath('CONTRIBUTING.md'), this.destinationPath('CONTRIBUTING.md'))
+        this.log('Copied Github templates')
       },
 
       // async writePublicAssets() {
