@@ -178,6 +178,7 @@ class ReactAppGenerator extends Generator {
   get writing() {
     return {
       async writePackage() {
+        this.log(chalk.cyanBright('Customizing Create React App'))
         const pkg = await fs.readJson(this.destinationPath('package.json'))
         extend(pkg, {
           name: this.name,
@@ -187,6 +188,10 @@ class ReactAppGenerator extends Generator {
           respository: 'UPDATE',
           author: 'Your name here - UPDATE',
         })
+
+        // Remove unnecessary dependencies
+        delete pkg.dependencies['@typescript-eslint/eslint-plugin']
+        delete pkg.dependencies['@typescript-eslint/parser']
 
         await fs.writeJSON(this.destinationPath('package.json'), pkg, { spaces: 2 })
         this.log('Updated package.json')
@@ -207,9 +212,6 @@ class ReactAppGenerator extends Generator {
   get install() {
     return {
       installDependencies() {
-        // Remove typescript dependencies from CRA
-        this.spawnCommandSync('yarn', ['remove', '@typescript-eslint/eslint-plugin'])
-        this.spawnCommandSync('yarn', ['remove', '@typescript-eslint/parser'])
         this.installDependencies({ bower: false, npm: false, yarn: true })
       },
     }
