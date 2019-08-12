@@ -35,6 +35,15 @@ class ReactAppGenerator extends Generator {
     this.option('cra-cache')
   }
 
+  // Initializing Priority
+  get initializing() {
+    return {
+      compose() {
+        this.composeWith(require.resolve('../lint'))
+      },
+    }
+  }
+
   // Prompting Priority
   get prompting() {
     return {
@@ -186,11 +195,29 @@ class ReactAppGenerator extends Generator {
       async writeConfig() {
         await fs.copy(this.templatePath('template.editorconfig'), this.destinationPath('.editorconfig'))
         this.log('Copied template .editorconfig file')
-        await fs.copy(this.templatePath('.github'), this.destinationPath('.github'))
-        await fs.copy(this.templatePath('CONTRIBUTING.md'), this.destinationPath('CONTRIBUTING.md'))
+        await this._copyTemplate('.github')
+        await this._copyTemplate('CONTRIBUTING.md')
+        await fs.copy(this.templatePath('template.gitignore'), this.destinationPath('.gitignore'))
         this.log('Copied Github templates')
       },
     }
+  }
+
+  // Install Priority
+  get install() {
+    return {
+      installDependencies() {
+        // Remove typescript dependencies from CRA
+        this.spawnCommandSync('yarn', ['remove', '@typescript-eslint/eslint-plugin'])
+        this.spawnCommandSync('yarn', ['remove', '@typescript-eslint/parser'])
+        this.installDependencies({ bower: false, npm: false, yarn: true })
+      },
+    }
+  }
+
+  // Helper Methods
+  async _copyTemplate(path) {
+    await fs.copy(this.templatePath(path), this.destinationPath(path))
   }
 }
 
