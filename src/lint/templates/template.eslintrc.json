@@ -1,7 +1,15 @@
 {
-  "extends": ["airbnb"],
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
   "env": {
     "browser": true,
     "jest": true
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "react/jsx-one-expression-per-line": ["off"],
+    "prettier/prettier": "error"
   }
 }
