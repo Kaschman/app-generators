@@ -1,0 +1,4 @@
+node_modules/*
+generators/*
+cra-cache/*
+sample-react-app/*
