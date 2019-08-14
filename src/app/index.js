@@ -1,3 +1,5 @@
+// React Application Generator
+// uses an ejected Create React App as the starting point
 import Generator from 'yeoman-generator'
 import chalk from 'chalk'
 import cliProgress from 'cli-progress'
@@ -40,6 +42,7 @@ class ReactAppGenerator extends Generator {
     return {
       compose() {
         this.composeWith(require.resolve('../lint'))
+        this.composeWith(require.resolve('../flow'))
       },
     }
   }
@@ -178,7 +181,7 @@ class ReactAppGenerator extends Generator {
   get writing() {
     return {
       async writePackage() {
-        this.log(chalk.cyanBright('Customizing Create React App'))
+        this.log(chalk.cyanBright('\nCustomizing Create React App'))
         const pkg = await fs.readJson(this.destinationPath('package.json'))
         extend(pkg, {
           name: this.name,

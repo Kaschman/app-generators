@@ -1,5 +1,4 @@
 // React Application Lint Generator
-
 import Generator from 'yeoman-generator'
 import chalk from 'chalk'
 import extend from 'deep-extend'
