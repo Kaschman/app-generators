@@ -21,8 +21,17 @@ class FlowGenerator extends Generator {
         this.log('Updated package.json with flow additions')
       },
 
+      async updateEslintConfig() {
+        const config = await fs.readJson(this.destinationPath('.eslintrc.json'))
+        config.extends.push('plugin:flowtype/recommended')
+        config.plugins.push('flowtype')
+        config.parser = 'babel-eslint'
+        await fs.writeJSON(this.destinationPath('.eslintrc.json'), config, { spaces: 2 })
+        this.log('Updated eslint config to recognize flow annotations')
+      },
+
       updateDependencies() {
-        this.yarnInstall(['flow-bin', 'flow-typed'], { dev: true })
+        this.yarnInstall(['babel-eslint', 'eslint-plugin-flowtype', 'flow-bin', 'flow-typed'], { dev: true })
         this.log('Added flow dependencies')
       },
 
@@ -31,7 +40,7 @@ class FlowGenerator extends Generator {
         this.log('Copied Flow configuration files')
       },
 
-      async updateFiles() {
+      async copyTemplates() {
         await fs.copy(this.templatePath('template.index'), this.destinationPath('src/index.js'))
         this.log('Fixed flow errors in index.js')
         await fs.copy(this.templatePath('template.serviceWorker'), this.destinationPath('src/serviceWorker.js'))
