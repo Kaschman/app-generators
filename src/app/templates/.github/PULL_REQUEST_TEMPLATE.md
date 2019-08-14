@@ -1,6 +1,6 @@
 Briefly describe the changes made.
 
-Reference issues addressed by this ticket.
+Issues addressed by this ticket:
 
 Steps for submission:
 - [ ] Run the code locally and perform a brief QA check.
