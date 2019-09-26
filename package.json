@@ -24,6 +24,7 @@
   "license": "none",
   "private": true,
   "dependencies": {
+    "@cmbirk/generator-es6": "^0.0.4",
     "chalk": "^2.4.2",
     "cli-progress": "^2.1.1",
     "count-files": "^2.6.2",

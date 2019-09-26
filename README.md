@@ -1,4 +1,7 @@
 # generator-react-app
+
+![](https://github.com/combine-labs/app-generators/workflows/Linting/badge.svg)
+
 Yeoman generator for creating React applications
 
 ## Getting started:
