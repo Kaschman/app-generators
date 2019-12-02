@@ -9,5 +9,14 @@
     "no-underscore-dangle": "off",
     "no-unused-vars": ["error", { "args": "after-used" }],
     "prettier/prettier": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/api/templates/_src/*"],
+      "rules": {
+        "import/no-unresolved": "off",
+        "no-console": "off"
+      }
+    }
+  ]
 }

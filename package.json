@@ -1,5 +1,5 @@
 {
-  "name": "generator-react-app",
+  "name": "generator-combine",
   "version": "0.0.1",
   "description": "Generator for opionated Combine Labs React applications.",
   "repository": "git@github.com:Combine-Labs/generator-react-app.git",
@@ -8,9 +8,10 @@
   ],
   "scripts": {
     "build": "babel src --out-dir generators --copy-files",
-    "clean": "rm -rf sample-react-app",
+    "clean": "rm -rf sample-react-app && rm -rf sample-api",
     "fix": "yarn lint --fix",
-    "generate": "yarn clean && yarn build && yo react-app --cra-cache",
+    "generate:api": "yarn clean && yarn build && yo combine:api",
+    "generate:react": "yarn clean && yarn build && yo combine --cra-cache",
     "lint": "eslint . --ext .js",
     "update:cra-cache": "rm -rf cra-cache && npx create-react-app cra-cache && cd cra-cache && echo y | yarn eject && cd .."
   },
@@ -21,8 +22,7 @@
     "node": ">=12.0.0"
   },
   "author": "Steve Kaschinske <steve.kaschinske@gmail.com>",
-  "license": "none",
-  "private": true,
+  "license": "MIT",
   "dependencies": {
     "@cmbirk/generator-es6": "^0.0.4",
     "chalk": "^2.4.2",

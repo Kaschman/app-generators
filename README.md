@@ -5,14 +5,21 @@
 Yeoman generator for creating React applications
 
 ## Getting started:
-### Running the Generator
+### Running the React Generator
 1. `$ yarn global add yo` if you haven't installed Yeoman yet.
 2. `$ yarn install`
 3. `$ yarn build`
 4. `$ yarn link` from this project's root directory to make the generator discoverable by Yeoman
-5. `$ yo react-app` to run the generator - note: the generator does not work if you have uncommitted git files in the directory where the command is run.
+5. `$ yo combine` to run the generator - note: the generator does not work if you have uncommitted git files in the directory where the command is run.
 
-### Development
+### Running the API Generator
+1. `$ yarn global add yo` if you haven't installed Yeoman yet.
+2. `$ yarn install`
+3. `$ yarn build`
+4. `$ yarn link` from this project's root directory to make the generator discoverable by Yeoman
+5. `$ yo combine:api` to run the generator - note: the generator does not work if you have uncommitted git files in the directory where the command is run.
+
+### React Generator Development
 Create React App takes awhile to run. When developing the generator, you can use a cached version of the Create React App boilerplate to speed up generation time.
 1. `$ yarn global add yo` if you haven't installed Yeoman yet.
 2. `$ yarn install`
