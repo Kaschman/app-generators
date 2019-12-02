@@ -2,3 +2,4 @@ node_modules
 generators
 sample-react-app
 cra-cache
+yarn-error.log
