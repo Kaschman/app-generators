@@ -30,6 +30,7 @@
     "count-files": "^2.6.2",
     "deep-extend": "^0.6.0",
     "fs-extra": "^8.1.0",
+    "global": "^4.4.0",
     "lodash": "^4.17.15",
     "recursive-copy": "^2.0.10",
     "yeoman-generator": "^4.0.1"
