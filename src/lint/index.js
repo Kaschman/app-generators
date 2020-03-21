@@ -57,9 +57,8 @@ class LintGenerator extends Generator {
       },
 
       async updateJSXFiles() {
-        await fs.remove(this.destinationPath('src/App.js'))
-        await fs.copy(this.templatePath('template.App'), this.destinationPath('src/App.jsx'))
-        this.log('Copied App.jsx template')
+        fs.renameSync(this.destinationPath('src/App.js'), this.destinationPath('src/App.jsx'))
+        this.log('Renamed App.js -> App.jsx template')
         fs.renameSync(this.destinationPath('src/App.test.js'), this.destinationPath('src/App.test.jsx'))
         this.log('Renamed App.test.js -> App.test.jsx')
       },
