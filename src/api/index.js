@@ -20,7 +20,7 @@ module.exports = class extends Generator {
   async prompting() {
     if (this.quiet) {
       this.answers = {
-        name: 'combine-graphql-api',
+        name: 'kaschman-graphql-api',
         description: 'New GraphQL API',
         devDependencies: true,
       }

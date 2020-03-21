@@ -1,8 +1,8 @@
 {
-  "name": "generator-combine",
+  "name": "generator-kaschman",
   "version": "0.0.1",
-  "description": "Generator for opionated Combine Labs React applications.",
-  "repository": "git@github.com:Combine-Labs/generator-react-app.git",
+  "description": "Generator for opionated React applications.",
+  "repository": "git@github.com:Kaschman/generator-react-app.git",
   "files": [
     "generators"
   ],
@@ -10,8 +10,8 @@
     "build": "babel src --out-dir generators --copy-files",
     "clean": "rm -rf sample-react-app && rm -rf sample-api",
     "fix": "yarn lint --fix",
-    "generate:api": "yarn clean && yarn build && yo combine:api",
-    "generate:react": "yarn clean && yarn build && yo combine --cra-cache",
+    "generate:api": "yarn clean && yarn build && yo kaschman:api",
+    "generate:react": "yarn clean && yarn build && yo kaschman --cra-cache",
     "lint": "eslint . --ext .js",
     "update:cra-cache": "rm -rf cra-cache && npx create-react-app cra-cache && cd cra-cache && echo y | yarn eject && cd .."
   },
