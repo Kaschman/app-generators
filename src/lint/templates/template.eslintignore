@@ -4,3 +4,4 @@ config/*
 flow-typed/*
 src/serviceWorker.js
 src/index.js
+build/*
